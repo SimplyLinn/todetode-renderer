@@ -1,0 +1,71 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "rules": {
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "^_",
+      "ignoreRestSiblings": true
+    }],
+    "no-void": ["error", { "allowAsStatement": true }],
+    "@typescript-eslint/no-floating-promises": ["error"],
+    "class-methods-use-this": ["off"],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "aspects": [ "invalidHref", "preferButton" ]
+    }],
+    "jsx-a11y/alt-text": ["error", {  
+      "elements": ["img", "object", "area", "input[type=\"image\"]"],
+      "img": ["Image", "OptimizedImg"],
+      "object": [],
+      "area": [],
+      "input[type=\"image\"]": []
+    }],
+    "jsx-a11y/label-has-associated-control": ["error", {
+      "labelComponents": [],
+      "labelAttributes": [],
+      "controlComponents": [],
+      "assert": "either",
+      "depth": 25
+    }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-plusplus": ["error", {
+      "allowForLoopAfterthoughts": true
+    }],
+    "no-underscore-dangle": ["error", {
+      "allowAfterThis": true
+    }],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/no-danger": ["off"],
+    "react/require-default-props": ["off"],
+    "react/prop-types": ["off"],
+    "react/function-component-definition": ["off"]
+  },
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["src", "./src"]
+        ],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".mjs"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".mjs"]
+      }
+    },
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".mjs"]
+  }
+}

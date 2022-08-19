@@ -1,0 +1,68 @@
+{
+  "name": "todetode",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:prod": "nodemon -x \"cross-env NODE_ENV=production next build && cross-env NODE_ENV=production next-sitemap && cross-env NODE_ENV=production next start\"",
+    "build": "cross-env NODE_ENV=production next build",
+    "postbuild": "cross-env NODE_ENV=production next-sitemap",
+    "export": "cross-env NODE_ENV=production shx rm -rf dist && cross-env NODE_ENV=production next export -o dist && cross-env NODE_ENV=production next-sitemap && shx mv dist/404/index.html dist/404.html && shx rm -rf dist/404",
+    "start": "next start",
+    "lint": "cross-env NODE_ENV=production run-p -cls --aggregate-output lint:*",
+    "lint:next": "next lint",
+    "lint:eslint-check": "cross-env NODE_ENV=production eslint-config-prettier 'src/**/*.js'",
+    "lint:prettier": "cross-env NODE_ENV=production prettier -c 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:eslint": "cross-env NODE_ENV=production eslint . --report-unused-disable-directives --color",
+    "lint:tsc": "cross-env NODE_ENV=production tsc --noEmit --pretty"
+  },
+  "nodemonConfig": {
+    "ext": "js,jsx,ts,tsx,json,css,scss,svg",
+    "watch": [
+      "src",
+      "next.config.js",
+      ".env"
+    ]
+  },
+  "dependencies": {
+    "@next/env": "*",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.1",
+    "dotenv": "^16.0.0",
+    "next": "^12.2.5",
+    "nprogress": "^0.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@next/eslint-plugin-next": "^12.1.5",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/node": "^17.0.24",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "autoprefixer": "^10.4.4",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "^12.1.5",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.3"
+  }
+}
